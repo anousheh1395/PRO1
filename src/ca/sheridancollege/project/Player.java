@@ -5,6 +5,7 @@
  */
 package ca.sheridancollege.project;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -13,14 +14,17 @@ import java.util.Scanner;
  *  @modifier IT Technicians
  * @date April 11,2020
  */
-public abstract class Player 
+public class Player extends PlayerHand 
 {
+    
     private String playerID; //the unique ID for this player
   
-    public Player(String name)
-    {
-        playerID= name;
-    }
+    public Player(){
+		super(); 
+		Scanner playerInput = new Scanner(System.in);
+		System.out.print("Enter your name: ");
+		playerID = playerInput.next();
+}//end
     
     public String getPlayerID() 
     {
@@ -31,7 +35,10 @@ public abstract class Player
     {
         playerID = givenID;
     }
-    
-    
-     public abstract void play();
+    @Override 
+	public String toString(){
+        return getPlayerID() + "'s card hand is: " + super.toString();
+
+	}
+   
 }

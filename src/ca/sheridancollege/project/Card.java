@@ -18,7 +18,6 @@ public abstract class Card
    public enum Suit{CLUBS,DIAMONDS,HEARTS,SPADES};
    public enum Value{TWO,THREE,FOUR,FIVE,SIX,SEVEN,
    EIGHT,NINE,TEN,JACK,QUEEN,KING,ACE};
-   
     private Suit suit;
     private Value value;
     //constructor
@@ -26,11 +25,12 @@ public abstract class Card
         this.value=value;
         this.suit=suit;
     }
-    public String toString(){
-    return this.suit.toString()+ " " +this.value.toString();
-}
     public Value getValue(){
         return this.value;
+}
+    @Override
+     public String toString(){
+    return this.suit.toString()+ " " +this.value.toString();
 }
 }
 

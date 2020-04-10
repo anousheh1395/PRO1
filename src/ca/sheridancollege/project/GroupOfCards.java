@@ -24,18 +24,24 @@ public class GroupOfCards
 {
     private ArrayList <Card> cards;
     private int size=52;
-    
+   
     public GroupOfCards(){
-       
         this.cards=new ArrayList <Card>();
     }
-    //To create a deck of cards
+    //creating a deck of cards
     public void createFullDeck(){
         for(Card.Suit cardSuit:Card.Suit.values()){
            for(Card.Value cardVlaue:Card.Value.values()){
                 this.cards.add(new Card(cardSuit,cardVlaue) {});
            } 
         }
+    }
+    //get the size of the deck 
+     public int getSize() {
+        return size;
+    }
+   public void setSize(int givenSize) {
+        size = givenSize;
     }
     //To shuffle the deck of cards   
     public void shuffle()
@@ -46,26 +52,10 @@ public class GroupOfCards
         int originalSize=this.cards.size();
         for (int i=0;i< originalSize;i++){
             randomCardIndex=random.nextInt((this.cards.size()-1-0)+1)+0;
-           tmpDeck.add(this.cards.get(randomCardIndex));
-           this.cards.remove(randomCardIndex);
+            tmpDeck.add(this.cards.get(randomCardIndex));
+            this.cards.remove(randomCardIndex);
         }
         this.cards=tmpDeck;
-    }
-    //get the size of the deck   
-   public int getSize() {
-        return size;
-    }
-   public void setSize(int givenSize) {
-        size = givenSize;
-    }
-    public String toString(){
-        String cardListOutput=" ";
-       
-        for(Card aCard:this.cards){
-           cardListOutput +="\n" +aCard.toString();
-        
-        }
-        return cardListOutput;
     }
     //to remove a card from the deck
      public void removeCard(int i){
@@ -96,6 +86,14 @@ public class GroupOfCards
              this.removeCard(0);
          }
      }
+     @Override
+    public String toString(){
+        String cardListOutput=" ";
+        for(Card aCard:this.cards){
+           cardListOutput +="\n" +aCard.toString();
+        }
+        return cardListOutput;
+    }
      //to calculate the value of each card
      public int cardValue(){
          int total=0;
@@ -126,7 +124,6 @@ public class GroupOfCards
                  total +=11;
              }
          }
-         return total;
-         
+         return total; 
      }
 }//end class
