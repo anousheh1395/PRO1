@@ -1,4 +1,4 @@
-/**
+ /**
  * SYST 17796 Project Winter 2020 Base code.
  * Students can modify and extend to implement their game.
  * Add your name as a modifier and the date!
@@ -24,16 +24,17 @@ public class Player extends PlayerHand
 		Scanner playerInput = new Scanner(System.in);
 		System.out.print("Enter your name: ");
 		playerID = playerInput.next();
-}//end
+              
+}
     
     public String getPlayerID() 
     {
         return playerID;
     }
 
-    public void setPlayerID(String givenID) 
+    public void setPlayerID(String playerID) 
     {
-        playerID = givenID;
+       this.playerID = playerID;
     }
     @Override 
 	public String toString(){

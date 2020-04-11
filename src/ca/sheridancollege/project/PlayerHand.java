@@ -28,11 +28,9 @@ public class PlayerHand  {
         this.hand = hand;
     }
     public void addCard(Card card){
-getHand().add(card);	
+    getHand().add(card);	
 
 	}
-    
-
     @Override 
 	public String toString(){
     return getHand() + "";

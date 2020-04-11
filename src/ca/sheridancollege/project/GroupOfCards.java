@@ -40,9 +40,7 @@ public class GroupOfCards
      public int getSize() {
         return size;
     }
-   public void setSize(int givenSize) {
-        size = givenSize;
-    }
+   
     //To shuffle the deck of cards   
     public void shuffle()
     {
@@ -86,6 +84,9 @@ public class GroupOfCards
              this.removeCard(0);
          }
      }
+     public void setSize(int size) {
+       this.size = size;
+    }
      @Override
     public String toString(){
         String cardListOutput=" ";
@@ -94,7 +95,7 @@ public class GroupOfCards
         }
         return cardListOutput;
     }
-     //to calculate the value of each card
+     //to calculate the value of each card and total value of hand
      public int cardValue(){
          int total=0;
          int aces=0;

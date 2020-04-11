@@ -18,6 +18,7 @@ public class BlackJackGame {
         
         do{
 	Player player = new Player();
+         
         //to start the game 
         GroupOfCards playingDeck=new GroupOfCards();
         GroupOfCards playerDeck=new GroupOfCards();
@@ -26,12 +27,9 @@ public class BlackJackGame {
         ArrayList< Card > playerHand = player.getHand();
         ArrayList< Card > dealerHand = dealer.getHand();
         Hand Hand = new Hand(player.getPlayerID(), dealer.getDealerID());
-        
         int playerScore = 0;
         
-	
-       
-     //creating a deck of card   
+    //creating a deck of card   
     playingDeck.createFullDeck();
     //shuffling the deck of cards we created in the last step
     playingDeck.shuffle();
@@ -122,24 +120,20 @@ public class BlackJackGame {
     dealerDeck.moveAllToDeck(playingDeck);
      
     System.out.println("End of the game");
+   
 
     } while(playAgain());
 }
     //asking user to check if he wants to start over
-	public static boolean playAgain(){
-
-		Scanner playAgainInput = new Scanner(System.in);
-		String answer;
-		System.out.print("Enter the word 'yes' to play again, "
-                        + "or anything else to end the game: ");
-		answer = playAgainInput.next();
-		if (answer.equalsIgnoreCase("yes")){
-			return true;
-		}
-		else{
-		return false;
-		}
-
+    public static boolean playAgain(){
+    Scanner input = new Scanner(System.in);
+    
+    System.out.print("Enter the word 'yes' to play again");
+    String answer = input.nextLine();
+    if(answer.equalsIgnoreCase("yes")){
+    return true;
+  }
+    return false;
 	}
 
 }
